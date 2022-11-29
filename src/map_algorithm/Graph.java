@@ -1,4 +1,4 @@
-package dijkstra;
+package map_algorithm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,10 +12,10 @@ public class Graph {
 	
 	ArrayList<GraphNode> nodes;
 	
-	
-	
 	public Graph(ArrayList<GraphNode> list) {
+		// TODO Auto-generated constructor stub
 		this.nodes = list;
+		
 		
 	}
 	
@@ -45,7 +45,7 @@ public class Graph {
 		HashMap<GraphNode,Integer> shortest_dict = new HashMap<GraphNode,Integer>();
 		
 		for(GraphNode node: graph.nodes)
-			distance_dict.put(node, Integer.MAX_VALUE);
+			distance_dict.put(node, 1000);
 			
 		
 		distance_dict.put(start, 0);
@@ -191,50 +191,52 @@ public class Graph {
 		
 		return total_distance;
 	}
-	
-	
-	
-	
+
 	
 
-//	public static void main(String[] args) {
-//		
-//		GraphNode nodeA = new GraphNode("A");
-//		GraphNode nodeB = new GraphNode("B");
-//		GraphNode nodeC = new GraphNode("C");
-//		GraphNode nodeD = new GraphNode("D");
-//		GraphNode nodeE = new GraphNode("E");
-//		
-//		
-//		Graph graph1 = new Graph(new ArrayList<>(Arrays.asList(nodeA,nodeB,nodeC,nodeD,nodeE)));
-//		graph1.add_edge(nodeA,nodeB,3);
-//		graph1.add_edge(nodeA,nodeD,2);
-//		graph1.add_edge(nodeB, nodeD, 4);
-//		graph1.add_edge(nodeB,nodeE,6);
-//		graph1.add_edge(nodeB,nodeC,1);
-//		graph1.add_edge(nodeC,nodeE,2);
-//		graph1.add_edge(nodeE,nodeD,1);
-//		
-////		for(GraphNode node: graph1.nodes)
-////		{
-////			System.out.println(node.value);
-////			
-////			for(GraphEdge edge: node.edges)
-////				System.out.println("Node: "+edge.node.value+" Distance: "+Integer.toString(edge.distance));
-////		}
-//		
-//		ArrayList<String> path = getPath(graph1, nodeA, nodeC);
-//		
-//		for(String c: path)
-//			System.out.print(c);
-//		
-//		
-//		System.out.println("\nDistance: "+Integer.toString(getDistance(graph1, nodeA, nodeC)));
-//		
-//		
-//		
-//
-//
-//	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		GraphNode nodeA = new GraphNode("A");
+		GraphNode nodeB = new GraphNode("B");
+		GraphNode nodeC = new GraphNode("C");
+		GraphNode nodeD = new GraphNode("D");
+		GraphNode nodeE = new GraphNode("E");
+		
+		
+		Graph graph1 = new Graph(new ArrayList<>(Arrays.asList(nodeA,nodeB,nodeC,nodeD,nodeE)));
+		graph1.add_edge(nodeA,nodeB,3);
+		graph1.add_edge(nodeA,nodeD,2);
+		graph1.add_edge(nodeB, nodeD, 4);
+		graph1.add_edge(nodeB,nodeE,6);
+		graph1.add_edge(nodeB,nodeC,1);
+		graph1.add_edge(nodeC,nodeE,2);
+		graph1.add_edge(nodeE,nodeD,1);
+		
+		for(GraphNode node: graph1.nodes)
+		{
+			System.out.println(node.value);
+			
+			for(GraphEdge edge: node.edges)
+				System.out.println("Node: "+edge.node.value+" Distance: "+Integer.toString(edge.distance));
+		}
+		
+		
+		
+		
+		ArrayList<String> path = getPath(graph1, nodeA, nodeC);
+		
+		for(String c: path)
+			System.out.print(c);
+		
+		
+		System.out.println("\nDistance: "+Integer.toString(getDistance(graph1, nodeA, nodeC)));
+		
+		
+		
+
+
+	}
 
 }

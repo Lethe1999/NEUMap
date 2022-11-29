@@ -10,10 +10,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("Map.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 
-			Scene scene = new Scene(root, 600, 600);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Scene scene = new Scene(root, 760, 500);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {

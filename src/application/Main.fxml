@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="500.0" minWidth="760.0" prefHeight="500.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MapController">
+   <children>
+      <Pane prefHeight="373.0" prefWidth="555.0" visible="false">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@us.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <GridPane fx:id="buildingMap" layoutX="100.0" layoutY="110.0" prefHeight="370.0" prefWidth="555.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="288.0" minWidth="5.0" percentWidth="32.0" prefWidth="225.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="749.0" minWidth="10.0" prefWidth="749.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="334.0" prefWidth="90.0" style="-fx-background-color: #FFF;">
+               <children>
+                  <ImageView fitHeight="97.0" fitWidth="78.0" layoutX="28.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@northeastern-huskies-logo.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="HOME" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="16.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-background-radius: 8; -fx-cursor: hand;" text="HOME" textAlignment="CENTER" textFill="#ddd8d8">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="0.15" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="aboutUs" alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="52.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-background-radius: 8;" text="About us" textAlignment="CENTER" textFill="#ddd8d8">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="0.15" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="tunnelBar1" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="88.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" prefHeight="29.0" prefWidth="98.0" style="-fx-background-color: #000000; -fx-background-radius: 8; -fx-cursor: s;" text="Tunnel map" textAlignment="CENTER" textFill="#ddd8d8">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="0.15" />
+                     </effect>
+                  </Button>
+                  <TextField fx:id="from_text" layoutX="25.0" layoutY="138.0" prefHeight="38.0" prefWidth="180.0" promptText="From" style="-fx-background-radius: 8;">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="to_text" layoutX="25.0" layoutY="188.0" prefHeight="38.0" prefWidth="180.0" promptText="To" style="-fx-background-radius: 8;">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="20.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weather: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="20.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle: ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="18.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance:">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Text>
+                  <Text layoutX="18.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:" wrappingWidth="58.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Text>
+                  <Text fx:id="distance" fill="#ffa800" layoutX="128.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="97.705078125">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="time" fill="#ffa800" layoutX="90.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="110.01953125">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="start" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="443.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#calculateDistance" prefHeight="36.0" prefWidth="98.0" style="-fx-background-color: #000000; -fx-background-radius: 8; -fx-cursor: hand;" text="START" textAlignment="CENTER" textFill="#ddd8d8">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="0.15" />
+                     </effect>
+                  </Button>
+                  <ComboBox fx:id="weather" layoutX="112.0" layoutY="252.0" prefHeight="27.0" prefWidth="98.0" promptText="Sunny" />
+                  <ComboBox fx:id="vehicle" layoutX="97.0" layoutY="294.0" prefHeight="29.0" prefWidth="115.0" promptText="Walk" />
+                  <Button fx:id="reset" alignment="CENTER" contentDisplay="CENTER" layoutX="128.0" layoutY="442.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#reset" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #000000; -fx-background-radius: 8; -fx-cursor: hand;" text="RESET" textAlignment="CENTER" textFill="#ddd8d8">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="0.15" />
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fitHeight="546.0" fitWidth="523.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@map.png" />
+                     </image>
+                  </ImageView>
+                  <Polyline fx:id="speare_richards" fill="#80ff0000" layoutX="169.0" layoutY="69.0" opacity="0.6" points="-29.8236083984375, 7.977516174316406, -21.92645263671875, 22.19237518310547, 40.5, 66.5, 5.5, 86.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="marino_cabot" fill="#80ff0000" layoutX="179.0" layoutY="79.0" opacity="0.6" points="-136.0, 63.163299560546875, -143.0, 116.5, -68.5, 73.5, -48.5, 109.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="cabot_richards" fill="#80ff0000" layoutX="189.0" layoutY="89.0" opacity="0.6" points="-59.9324951171875, 99.5, -59.9324951171875, 92.5, -46.767822265625, 86.39401245117188, -14.5, 68.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="richards_hayden" fill="#80ff0000" layoutX="199.0" layoutY="99.0" opacity="0.6" points="-6.5, 134.5, -13.5, 140.5, -49.5, 68.5, -24.5, 58.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="churchill_hayden" fill="#80ff0000" layoutX="202.0" layoutY="156.0" opacity="0.6" points="-39.5, 120.5, -33.5, 106.5, -27.48724365234375, 90.5, -10.5, 78.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="marino_forsyth" fill="#80ff0000" layoutX="161.0" layoutY="135.0" opacity="0.6" points="-118.0, 7.163299560546875, -130.79200744628906, 16.595260620117188, -124.5, 65.5, -80.5, 159.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="forsyth_churchill" fill="#80ff0000" layoutX="210.0" layoutY="143.0" opacity="0.6" points="-129.5, 150.5, -81.5, 119.5, -70.5, 134.5, -48.5, 134.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="sec_forsyth" fill="#80ff0000" layoutX="232.0" layoutY="192.0" opacity="0.6" points="-150.5, 101.5, -101.5, 69.5, -77.5, 137.5, -44.5, 123.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="sec_snell" fill="#80ff0000" layoutX="325.0" layoutY="255.0" opacity="0.6" points="-136.5, 60.5, -119.5, 45.5, -109.5, 39.5, -91.5, 45.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="snell_curry" fill="#80ff0000" layoutX="378.0" layoutY="262.0" opacity="0.6" points="-146.5, 38.5, -146.5, 13.5, -130.5, -2.5, -122.5, -19.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="ell_curry" fill="#80ff0000" layoutX="419.0" layoutY="295.0" opacity="0.6" points="-164.5, -55.5, -173.5, -55.5, -208.5, -126.5, -183.5, -139.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="richards_ell" fill="#80ff0000" layoutX="432.0" layoutY="249.0" opacity="0.6" points="-196.5, -91.5, -205.5, -105.5, -220.5, -112.5, -261.49749755859375, -91.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="hayden_ell" fill="#80ff0000" layoutX="490.0" layoutY="267.0" opacity="0.6" points="-255.5, -110.93319702148438, -280.5, -93.60598754882812, -255.5, -51.5, -296.5, -33.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="hayden_snell" fill="#80ff0000" layoutX="550.0" layoutY="312.0" opacity="0.6" points="-356.33837890625, -77.64410400390625, -364.83636474609375, -71.27061462402344, -337.2179260253906, -20.990875244140625, -318.09747314453125, -11.076568603515625" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="snell_churchill" fill="#80ff0000" layoutX="336.0" layoutY="290.0" opacity="0.6" points="-175.62216186523438, -12.446014404296875, -143.75473022460938, -35.10731506347656, -121.09341430664062, 5.25811767578125, -104.09747314453125, 10.21527099609375" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="cabot_forsyth" fill="#80ff0000" layoutX="171.0" layoutY="145.0" opacity="0.6" points="-41.54046630859375, 43.5, -61.0, 6.5, -133.0, 49.5, -91.0, 149.5" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="marino_speare" fill="#80ff0000" layoutX="179.0" layoutY="79.0" opacity="0.6" points="-135.51486206054688, 66.49998474121094, -31.041595458984375, 12.277191162109375, -39.84552001953125, -3.5698776245117188, -39.84552001953125, -3.5698776245117188" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="speare_dodge" fill="#80ff0000" layoutX="189.0" layoutY="89.0" opacity="0.6" points="62.315826416015625, 25.883804321289062, 14.932952880859375, 37.992759704589844, -41.399993896484375, 1.6659011840820312, -50.35009765625, -12.548957824707031" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="dodge_mugar" fill="#80ff0000" layoutX="199.0" layoutY="99.0" opacity="0.6" points="89.69561767578125, 44.839996337890625, 86.01031494140625, 39.04876708984375, 64.42477416992188, 50.104766845703125, 50.73638916015625, 16.93675994873047" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="dodge_hastings" fill="#80ff0000" layoutX="209.0" layoutY="109.0" opacity="0.6" points="42.315826416015625, 4.936767578125, 22.309722900390625, 4.936767578125, 22.309722900390625, -22.019432067871094, 66.53375244140625, -44.131431579589844" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="speare_hastings" fill="#80ff0000" layoutX="219.0" layoutY="119.0" opacity="0.6" points="-79.56036376953125, -42.54895782470703, -71.66323852539062, -27.80762481689453, -40.07464599609375, -6.222099304199219, 56.79693603515625, -53.604957580566406" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="mugar_eastvillage" fill="#80ff0000" layoutX="209.0" layoutY="109.0" opacity="0.6" points="79.9588623046875, 34.839996337890625, 75.7470703125, 29.04876708984375, 135.76531982421875, -6.2251434326171875, 135.76531982421875, -9.384002685546875" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="eastvillage_gainsborough" fill="#80ff0000" layoutX="219.0" layoutY="119.0" opacity="0.6" points="125.76531982421875, -17.278099060058594, 150.50970458984375, -32.019432067871094, 157.35394287109375, -20.43695831298828, 177.36004638671875, -28.860572814941406" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="mugar_hastings" fill="#80ff0000" layoutX="229.0" layoutY="129.0" opacity="0.6" points="59.432373046875, 14.313522338867188, 66.276611328125, 2.2045745849609375, 35.2144775390625, -57.813720703125, 46.2705078125, -64.13143157958984" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="eastvillage_cullinane" fill="#80ff0000" layoutX="229.0" layoutY="129.0" opacity="0.6" points="132.61260986328125, -20.96038055419922, 132.61260986328125, -20.96038055419922, 132.61260986328125, -20.96038055419922, 116.81829833984375, -28.857528686523438" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="cullinane_hurtig" fill="#80ff0000" layoutX="229.0" layoutY="129.0" opacity="0.6" points="132.08612060546875, -21.486862182617188, 115.2388916015625, -12.536766052246094, 143.6685791015625, 58.53752136230469, 153.671630859375, 51.16685485839844" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="hurtig_robinson" fill="#80ff0000" layoutX="239.0" layoutY="139.0" opacity="0.6" points="110.503662109375, 79.07315063476562, 118.92724609375, 65.91123962402344, 134.195068359375, 57.48762512207031, 143.6685791015625, 41.16685485839844" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="robinsonquad_robinson" fill="#80ff0000" layoutX="249.0" layoutY="149.0" opacity="0.6" points="66.80914306640625, 66.44076538085938, 66.80914306640625, 66.44076538085938, 79.9710693359375, 69.59962463378906, 101.03009033203125, 69.59962463378906" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="mugar_robinson" fill="#80ff0000" layoutX="259.0" layoutY="159.0" opacity="0.6" points="29.9588623046875, -14.1070556640625, 48.9119873046875, 21.166854858398438, 67.86517333984375, 12.743240356445312, 92.60955810546875, 59.59962463378906" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="dodge_robinsonquad" fill="#80ff0000" layoutX="269.0" layoutY="169.0" opacity="0.6" points="-19.0003662109375, -55.69562530517578, -3.206085205078125, -9.892196655273438, 13.64117431640625, -4.6274261474609375, 46.28265380859375, 44.440765380859375" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="mugar_robinsonquad" fill="#80ff0000" layoutX="279.0" layoutY="179.0" opacity="0.6" points="7.85296630859375, -34.03749084472656, -13.7325439453125, -22.524566650390625, 2.58819580078125, -14.627426147460938, 36.80914306640625, 34.440765380859375" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="curry_robinsonquad" fill="#80ff0000" layoutX="259.0" layoutY="159.0" opacity="0.6" points="57.33563232421875, 56.96723937988281, 57.33563232421875, 56.96723937988281, 57.33563232421875, 56.96723937988281, -5.735595703125, 83.18513488769531" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="robinsonquad_columbus" fill="#80ff0000" layoutX="259.0" layoutY="159.0" opacity="0.6" points="117.35394287109375, 150.67999267578125, 91.55657958984375, 130.14743041992188, 91.55657958984375, 116.45904541015625, 56.80914306640625, 55.3878173828125" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="snell_columbus" fill="#80ff0000" layoutX="269.0" layoutY="169.0" opacity="0.6" points="107.88037109375, 140.67999267578125, 81.03009033203125, 119.094482421875, -11.10321044921875, 114.2718505859375, -37.953521728515625, 131.20343017578125" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="dodge_ell" fill="#80ff0000" layoutX="209.0" layoutY="109.0" opacity="0.6" points="41.526092529296875, 5.8838043212890625, 32.576019287109375, 11.675041198730469, 19.940582275390625, 31.681137084960938, 27.5, 48.52838134765625" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="ell_mugar" fill="#80ff0000" layoutX="209.0" layoutY="109.0" opacity="0.6" points="78.90594482421875, 36.41943359375, 57.320404052734375, 44.839996337890625, 49.423248291015625, 32.734100341796875, 26.784759521484375, 44.839996337890625" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="columbus_hurtig" fill="#80ff0000" layoutX="239.0" layoutY="139.0" opacity="0.6" points="143.671630859375, 42.21980285644531, 149.462890625, 84.33790588378906, 111.03009033203125, 148.5679931640625, 137.88037109375, 171.73294067382812" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="cullinane_robinsonquad" fill="#80ff0000" layoutX="239.0" layoutY="139.0" opacity="0.6" points="121.55963134765625, -29.907432556152344, 106.81829833984375, -22.536766052246094, 124.718505859375, 37.48152160644531, 77.33563232421875, 75.91429138183594" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="speare_cabot" fill="#80ff0000" layoutX="189.0" layoutY="89.0" opacity="0.6" points="-60.3531494140625, 99.06399536132812, -77.20037841796875, 62.73713684082031, -9.811431884765625, 25.77789306640625, -48.244171142578125, -12.022483825683594" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Polyline fx:id="sec_columbus" fill="#80ff0000" layoutX="279.0" layoutY="179.0" opacity="0.6" points="98.14361572265625, 131.20343017578125, 62.8697509765625, 105.93560791015625, -50.322662353515625, 222.286865234375, -89.28189086914062, 137.52420043945312" stroke="#7079f5" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+                  <Rectangle fx:id="sec" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="38.0" layoutX="151.0" layoutY="323.0" onMouseClicked="#select_sec" opacity="0.0" rotate="-27.8" stroke="BLACK" strokeType="INSIDE" width="51.0" />
+                  <Rectangle fx:id="snell" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="74.0" layoutX="215.0" layoutY="296.0" onMouseClicked="#select_snell" opacity="0.0" rotate="-29.7" stroke="BLACK" strokeType="INSIDE" width="71.0" />
+                  <Rectangle fx:id="curry" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="61.0" layoutX="256.0" layoutY="219.0" onMouseClicked="#select_curry" opacity="0.0" rotate="-27.6" stroke="BLACK" strokeType="INSIDE" width="58.0" />
+                  <Rectangle fx:id="ell" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" layoutX="234.0" layoutY="155.0" onMouseClicked="#select_ell" opacity="0.0" rotate="-27.8" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+                  <Rectangle fx:id="richards" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="81.0" layoutX="153.0" layoutY="122.0" onMouseClicked="#select_richards" opacity="0.0" rotate="-29.2" stroke="BLACK" strokeType="INSIDE" width="46.0" />
+                  <Rectangle fx:id="hayden" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="62.0" layoutX="185.0" layoutY="195.0" onMouseClicked="#select_hayden" opacity="0.0" rotate="-25.6" stroke="BLACK" strokeType="INSIDE" width="43.0" />
+                  <Rectangle fx:id="cabot" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="99.0" layoutX="47.0" layoutY="167.0" onMouseClicked="#select_cabot" opacity="0.0" rotate="-30.5" stroke="BLACK" strokeType="INSIDE" width="110.0" />
+                  <Rectangle fx:id="forsyth" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="74.0" layoutY="280.0" onMouseClicked="#select_forsyth" opacity="0.0" rotate="-15.9" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="churchill" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="146.0" layoutY="274.0" onMouseClicked="#select_churchill" opacity="0.0" rotate="-30.5" stroke="BLACK" strokeType="INSIDE" width="51.0" />
+                  <Rectangle fx:id="marino" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutX="12.0" layoutY="79.0" onMouseClicked="#select_marino" opacity="0.0" rotate="-23.5" stroke="BLACK" strokeType="INSIDE" width="62.0" />
+                  <Rectangle fx:id="robinson" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" layoutX="335.0" layoutY="218.0" onMouseClicked="#select_robinson" opacity="0.0" rotate="-27.6" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                  <Rectangle fx:id="hurtig" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="34.0" layoutX="379.0" layoutY="150.0" onMouseClicked="#select_hurtig" opacity="0.0" rotate="-23.5" stroke="BLACK" strokeType="INSIDE" width="53.0" />
+                  <Rectangle fx:id="cullinane" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" layoutX="355.0" layoutY="106.0" onMouseClicked="#select_cullinane" opacity="0.0" rotate="-32.3" stroke="BLACK" strokeType="INSIDE" width="33.0" />
+                  <Rectangle fx:id="dodge" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="66.0" layoutX="251.0" layoutY="76.0" onMouseClicked="#select_dodge" opacity="0.0" rotate="-27.6" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+                  <Rectangle fx:id="mugar" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutX="288.0" layoutY="133.0" onMouseClicked="#select_mugar" opacity="0.0" rotate="-27.6" stroke="BLACK" strokeType="INSIDE" width="63.0" />
+                  <Rectangle fx:id="hastings" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="65.0" layoutX="285.0" layoutY="61.0" onMouseClicked="#select_hastings" opacity="0.0" rotate="-27.6" stroke="BLACK" strokeType="INSIDE" width="17.0" />
+                  <Rectangle fx:id="eastvillage" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="21.0" layoutX="309.0" layoutY="75.0" onMouseClicked="#select_eastvillage" opacity="0.0" rotate="-27.4" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+                  <Rectangle fx:id="gainsborough" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="60.0" layoutX="398.0" layoutY="68.0" onMouseClicked="#select_gainsborough" opacity="0.0" rotate="-34.8" stroke="BLACK" strokeType="INSIDE" width="88.0" />
+                  <Rectangle fx:id="speare" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="47.0" layoutX="72.0" layoutY="45.0" onMouseClicked="#select_speare" opacity="0.0" rotate="-27.8" stroke="BLACK" strokeType="INSIDE" width="63.0" />
+                  <Rectangle fx:id="columbus" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="96.0" layoutX="352.0" layoutY="308.0" onMouseClicked="#select_columbus" opacity="0.0" rotate="-50.2" stroke="BLACK" strokeType="INSIDE" width="95.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+      <GridPane fx:id="tunnelMap" layoutY="21.0" prefHeight="400.0" prefWidth="555.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" percentWidth="30.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="70.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <AnchorPane style="-fx-background-color: #E50000;">
+               <children>
+                  <ImageView fitHeight="73.0" fitWidth="55.0" layoutX="21.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@northeastern-huskies-logo.png" />
+                     </image>
+                  </ImageView>
+                  <TextField layoutX="19.0" layoutY="142.0" prefHeight="27.0" prefWidth="137.0" promptText="From" style="-fx-background-radius: 8;">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="HOME1" alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="37.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" prefHeight="16.0" prefWidth="55.0" style="-fx-background-color: #000000; -fx-background-radius: 8; -fx-cursor: hand;" text="HOME" textAlignment="CENTER" textFill="#ddd8d8">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="0.15" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="aboutUs2" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="62.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" style="-fx-background-color: #000000; -fx-background-radius: 8;" text="About us" textAlignment="CENTER" textFill="#ddd8d8">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="0.15" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="tunnelBar2" alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="88.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" style="-fx-background-color: #000000; -fx-background-radius: 8; -fx-cursor: hand;" text="Building map" textAlignment="CENTER" textFill="#ddd8d8">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="0.15" />
+                     </effect>
+                  </Button>
+                  <TextField layoutX="19.0" layoutY="180.0" prefHeight="27.0" prefWidth="137.0" promptText="To" style="-fx-background-radius: 8;">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <MenuBar layoutX="79.0" layoutY="218.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-radius: 2;" AnchorPane.leftAnchor="79.0">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="choose">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Sunny" />
+                              <MenuItem mnemonicParsing="false" text="Cloudy" />
+                              <MenuItem mnemonicParsing="false" text="Rainy" />
+                           </items>
+                        </Menu>
+                     </menus>
+                  </MenuBar>
+                  <Text layoutX="19.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weather: ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <MenuBar layoutX="79.0" layoutY="249.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-radius: 2;">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="choose">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="walk" />
+                              <MenuItem mnemonicParsing="false" text="Bicycle" />
+                           </items>
+                        </Menu>
+                     </menus>
+                  </MenuBar>
+                  <Text layoutX="19.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle: ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane style="-fx-background-color: #000000;" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fitHeight="450.0" fitWidth="388.0" layoutX="2.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@maptennel.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+      <Pane fx:id="mainPage" layoutX="64.0" layoutY="34.0" prefHeight="370.0" prefWidth="515.0" style="-fx-background-color: #E50000;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="224.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@northeastern-huskies-logo.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="212.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Map DOODS">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="70.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Northeastern University Map Distance Calculator " textAlignment="CENTER" wrappingWidth="437.646484375">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <ButtonBar layoutX="100.0" layoutY="295.0" prefHeight="46.0" prefWidth="355.0">
+              <buttons>
+                  <Button fx:id="tunnelBar" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="7.0" layoutX="36.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: #000000;" text="Tunnel map" textAlignment="RIGHT" textFill="#dacdcd" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buildingBar" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="7.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: #000000;" text="Buildings map" textAlignment="RIGHT" textFill="#dacdcd" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="aboutUs" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="7.0" layoutX="30.0" layoutY="22.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="25.0" style="-fx-background-color: #000000;" text="About us" textAlignment="RIGHT" textFill="#dacdcd" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+              </buttons>
+            </ButtonBar>
+         </children>
+      </Pane>
+      <HBox fx:id="hbox" spacing="5.0" visible="false" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <Circle fx:id="btnClose" fill="#a4b9cd" onMouseClicked="#handleMouseEvent" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#d8d80e" layoutX="19.0" layoutY="19.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#19e226" layoutX="19.0" layoutY="19.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

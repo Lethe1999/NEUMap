@@ -1,4 +1,4 @@
-package dijkstra;
+package map_algorithm;
 
 public class PathNode {
 	

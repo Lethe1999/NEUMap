@@ -1,4 +1,4 @@
-package dijkstra;
+package map_algorithm;
 
 import java.util.ArrayList;
 
