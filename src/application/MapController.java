@@ -18,14 +18,17 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polyline;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import map_algorithm.GraphNode;
 import map_algorithm.NEUMap;
 
 public class MapController {
 
-	/* Path colors */
+	/* Path changes */
 	private static final Color PATH_ORIGIN = Color.web("#7079f5");
 	private static final Color PATH_FOUND = Color.web("#ff00aa");
+	private static final double PATH_ORIGIN_WIDTH = 3.0;
+	private static final double PATH_COLOR_WIDTH = 5.0;
+	private static final double PATH_ORIGIN_OPACITY = 0.6;
+	private static final double PATH_COLOR_OPACITY = 1.0;
 
 	/* From and to positions */
 	@FXML
@@ -66,10 +69,12 @@ public class MapController {
 		vehicle.setItems(vehiclesOptions);
 	}
 
+	/* Create a NEU Map */
+	private NEUMap neuMap = new NEUMap();
+
 	/* Button - Start */
 	public void calculateDistance() {
 		/* Calculate distance */
-		NEUMap neuMap = new NEUMap();
 		int distance_text = neuMap.getDistance(from, to);
 		String time_text = String.format("%.2f", getTime(distance_text, weather.getValue(), vehicle.getValue()));
 
@@ -124,8 +129,11 @@ public class MapController {
 	/* Color path */
 	private void colorPath(String path_text) {
 		for (Polyline path : pathList) {
-			if (path.getId().equals(path_text))
+			if (path.getId().equals(path_text)) {
 				path.setStroke(PATH_FOUND);
+				path.setStrokeWidth(PATH_COLOR_WIDTH);
+				path.setOpacity(PATH_COLOR_OPACITY);
+			}
 		}
 	}
 
@@ -143,6 +151,8 @@ public class MapController {
 		/* Reset path color */
 		for (Polyline path : pathList) {
 			path.setStroke(PATH_ORIGIN);
+			path.setStrokeWidth(PATH_ORIGIN_WIDTH);
+			path.setOpacity(PATH_ORIGIN_OPACITY);
 		}
 	}
 

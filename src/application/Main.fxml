@@ -202,7 +202,7 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <GridPane fx:id="tunnelMap" layoutY="21.0" prefHeight="400.0" prefWidth="555.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane fx:id="tunnelMap" layoutY="21.0" prefHeight="400.0" prefWidth="555.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" percentWidth="32.0" prefWidth="255.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="68.0" />
@@ -296,7 +296,7 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <Pane fx:id="mainPage" layoutX="64.0" layoutY="34.0" prefHeight="500.0" prefWidth="767.0" style="-fx-background-color: #E50000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="mainPage" layoutX="64.0" layoutY="34.0" prefHeight="500.0" prefWidth="767.0" style="-fx-background-color: #E50000;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="353.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
                <image>
