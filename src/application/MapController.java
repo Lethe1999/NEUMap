@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -9,10 +10,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polyline;
@@ -55,7 +61,6 @@ public class MapController {
 	@FXML
 	Rectangle sec, snell, curry, ell, richards, hayden, cabot, forsyth, churchill, marino, speare, columbus, robinson,
 			hurtig, mugar, cullinane, gainsborough, eastvillage, hastings, dodge;
-	// private Rectangle[] buildings;
 
 	/* Weather and vehicle */
 	@FXML
@@ -63,14 +68,45 @@ public class MapController {
 	private ObservableList<String> weatherOptions = FXCollections.observableArrayList("Sunny", "Snowy", "Rainy");
 	private ObservableList<String> vehiclesOptions = FXCollections.observableArrayList("Walk", "Bicycle");
 
+	/* Background music */
+	@FXML
+	ImageView sound;
+	private static final String LOCAL_PATH = "/Users/changyu/Northeastern/CSYE6200/FinalProject/src/application/";
+	private static final String MUSIC_PATH = LOCAL_PATH + "Calm-and-Peaceful.mp3";
+	private MediaPlayer mediaPlayer = new MediaPlayer(new Media(new File(MUSIC_PATH).toURI().toString()));
+	private Image volume = new Image("file:" + LOCAL_PATH + "volume.png");
+	private Image mute = new Image("file:" + LOCAL_PATH + "mute.png");
+
+	/* Initialization */
 	@FXML
 	public void initialize() {
+		/* Music */
+		mediaPlayer.play();
+		sound.setImage(volume);
+
 		weather.setItems(weatherOptions);
 		vehicle.setItems(vehiclesOptions);
 	}
 
 	/* Create a NEU Map */
 	private NEUMap neuMap = new NEUMap();
+
+	/**
+	 * 
+	 * Main Controller
+	 * 
+	 */
+
+	/* Sound */
+	public void soundControl() {
+		if (mediaPlayer.getStatus().equals(Status.PLAYING)) { // PLAYING
+			mediaPlayer.pause();
+			sound.setImage(mute);
+		} else { // Pause
+			mediaPlayer.play();
+			sound.setImage(volume);
+		}
+	}
 
 	/* Button - Start */
 	public void calculateDistance() {
@@ -155,6 +191,12 @@ public class MapController {
 			path.setOpacity(PATH_ORIGIN_OPACITY);
 		}
 	}
+
+	/* Set building names by input */
+//	public void setFromBuildingName() {
+//		System.out.println(from_text.getText());
+//		from = from_text.getText();
+//	}
 
 	/* Select buildings */
 	public void select_sec() {
@@ -255,7 +297,7 @@ public class MapController {
 
 	/**
 	 * 
-	 * Main Controller
+	 * Side bar Controller
 	 * 
 	 */
 	@FXML

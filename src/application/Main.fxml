@@ -13,10 +13,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -24,15 +22,6 @@
 
 <AnchorPane minHeight="500.0" minWidth="760.0" prefHeight="500.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MapController">
    <children>
-      <Pane prefHeight="373.0" prefWidth="555.0">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@us.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
       <GridPane fx:id="buildingMap" layoutX="100.0" layoutY="110.0" prefHeight="370.0" prefWidth="555.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="288.0" minWidth="5.0" percentWidth="32.0" prefWidth="219.0" />
@@ -129,6 +118,7 @@
                         <Bloom threshold="0.15" />
                      </effect>
                   </Button>
+                  <ImageView fx:id="sound" fitHeight="30.0" fitWidth="30.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#soundControl" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -334,12 +324,5 @@
             </ButtonBar>
          </children>
       </Pane>
-      <HBox fx:id="hbox" spacing="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
-         <children>
-            <Circle fx:id="btnClose" fill="#a4b9cd" onMouseClicked="#handleMouseEvent" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#d8d80e" layoutX="19.0" layoutY="19.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#19e226" layoutX="19.0" layoutY="19.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-         </children>
-      </HBox>
    </children>
 </AnchorPane>

@@ -7,9 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 public class Main extends Application {
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			/* Map */
 			Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 
 			Scene scene = new Scene(root, 760, 500);
