@@ -98,27 +98,27 @@ public class Graph {
 		
 	}
 	
-	public static HashMap<GraphNode, PathNode> djikstra_path(Graph graph, GraphNode start, GraphNode end )
+	public static HashMap<GraphNode, GraphEdge> djikstra_path(Graph graph, GraphNode start, GraphNode end )
 	{
-		HashMap<GraphNode,PathNode> distance_dict = new HashMap<GraphNode,PathNode>();
-		HashMap<GraphNode,PathNode> shortest_dict = new HashMap<GraphNode,PathNode>();
+		HashMap<GraphNode,GraphEdge> distance_dict = new HashMap<GraphNode,GraphEdge>();
+		HashMap<GraphNode,GraphEdge> shortest_dict = new HashMap<GraphNode,GraphEdge>();
 		
 		for(GraphNode node: graph.nodes)
-			distance_dict.put(node, new PathNode(null,Integer.MAX_VALUE));
+			distance_dict.put(node, new GraphEdge(null,Integer.MAX_VALUE));
 			
 		
-		distance_dict.put(start, new PathNode(start, 0));
+		distance_dict.put(start, new GraphEdge(start, 0));
 		
 //		for(GraphNode node: distance_dict.keySet())
 //			System.out.println("Node: "+node.value+" Distance:"+Integer.toString(distance_dict.get(node).distance));
 		
 		while(distance_dict.size()>0)
 		{
-			ArrayList<PathNode> pathnodes = new ArrayList<>(distance_dict.values());
+			ArrayList<GraphEdge> GraphEdges = new ArrayList<>(distance_dict.values());
 			
 			ArrayList<Integer> distances = new ArrayList<>();
 			
-			for(PathNode node: pathnodes)
+			for(GraphEdge node: GraphEdges)
 				distances.add(node.distance);
 			
 			Collections.sort(distances);
@@ -148,7 +148,7 @@ public class Graph {
 					
 					if(distance_dict.get(edge.node).distance>distance_to_neighbour)
 					{
-						distance_dict.put(edge.node, new PathNode(current_node, distance_to_neighbour));
+						distance_dict.put(edge.node, new GraphEdge(current_node, distance_to_neighbour));
 					}
 				}
 			}
@@ -168,7 +168,7 @@ public class Graph {
 	public static ArrayList<String> getPath(Graph graph, GraphNode start, GraphNode end)
 	{
 		
-		HashMap<GraphNode, PathNode> shortest_distance = djikstra_path(graph, start, end);
+		HashMap<GraphNode, GraphEdge> shortest_distance = djikstra_path(graph, start, end);
 		
 		ArrayList<String> path = new ArrayList<>();
 		path.add(end.value);

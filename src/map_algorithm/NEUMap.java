@@ -104,7 +104,7 @@ public class NEUMap {
 
 	public ArrayList<String> getPath(String start, String end) {
 
-		HashMap<GraphNode, PathNode> shortest_distance = Graph.djikstra_path(this.graph, buildingMap.get(start),
+		HashMap<GraphNode, GraphEdge> shortest_distance = Graph.djikstra_path(this.graph, buildingMap.get(start),
 				buildingMap.get(end));
 
 		ArrayList<String> path = new ArrayList<>();
