@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class NEUMap {
+public class NEUMap extends Graph {
 
-	Graph graph;
+	
 	HashMap<String, GraphNode> buildingMap;
 
 	public NEUMap() {
@@ -56,55 +56,56 @@ public class NEUMap {
 		buildingMap.put("dodge", dodge);
 		buildingMap.put("robinsonquad", robinsonquad);
 
-		this.graph = new Graph(new ArrayList<>(Arrays.asList(sec, snell, curry, ell, richards, hayden, cabot, forsyth,
+		this.nodes = new ArrayList<>(Arrays.asList(sec, snell, curry, ell, richards, hayden, cabot, forsyth,
 				churchill, marino, speare, columbus, robinson, hurtig, mugar, cullinane, gainsborough, eastvillage,
-				hastings, dodge, robinsonquad)));
-		this.graph.add_edge(marino, cabot, 252);
-		this.graph.add_edge(marino, forsyth, 168);
-		this.graph.add_edge(cabot, forsyth, 260);
-		this.graph.add_edge(richards, hayden, 117);
-		this.graph.add_edge(richards, cabot, 56);
-		this.graph.add_edge(richards, ell, 46);
-		this.graph.add_edge(ell, hayden, 84);
-		this.graph.add_edge(ell, curry, 112);
-		this.graph.add_edge(curry, snell, 70);
-		this.graph.add_edge(snell, hayden, 80);
-		this.graph.add_edge(snell, sec, 30);
-		this.graph.add_edge(sec, forsyth, 196);
-		this.graph.add_edge(churchill, forsyth, 112);
-		this.graph.add_edge(churchill, snell, 70);
-		this.graph.add_edge(churchill, hayden, 50);
-
-		this.graph.add_edge(marino, speare, 163);
-		this.graph.add_edge(speare, dodge, 170);
-		this.graph.add_edge(dodge, mugar, 90);
-		this.graph.add_edge(dodge, hastings, 115);
-		this.graph.add_edge(speare, hastings, 173);
-		this.graph.add_edge(mugar, eastvillage, 84);
-		this.graph.add_edge(eastvillage, gainsborough, 34);
-		this.graph.add_edge(mugar, hastings, 90);
-		this.graph.add_edge(eastvillage, cullinane, 25);
-		this.graph.add_edge(cullinane, hurtig, 117);
-		this.graph.add_edge(hurtig, robinson, 60);
-		this.graph.add_edge(robinsonquad, robinson, 34);
-		this.graph.add_edge(mugar, robinson, 140);
-		this.graph.add_edge(dodge, robinsonquad, 150);
-		this.graph.add_edge(mugar, robinsonquad, 124);
-		this.graph.add_edge(curry, robinsonquad, 80);
-		this.graph.add_edge(robinsonquad, columbus, 146);
-		this.graph.add_edge(snell, columbus, 210);
-		this.graph.add_edge(dodge, ell, 45);
-		this.graph.add_edge(ell, mugar, 42);
-		this.graph.add_edge(columbus, hurtig, 154);
-		this.graph.add_edge(cullinane, robinsonquad, 120);
-		this.graph.add_edge(speare, cabot, 172);
-		this.graph.add_edge(sec, columbus, 282);
+				hastings, dodge, robinsonquad));
+		
+		super.addEdge(marino, cabot, 252);
+		super.addEdge(marino, forsyth, 168);
+		super.addEdge(cabot, forsyth, 260);
+		super.addEdge(richards, hayden, 117);
+		super.addEdge(richards, cabot, 56);
+		super.addEdge(richards, ell, 46);
+		super.addEdge(ell, hayden, 84);
+		super.addEdge(ell, curry, 112);
+		super.addEdge(curry, snell, 70);
+		super.addEdge(snell, hayden, 80);
+		super.addEdge(snell, sec, 30);
+		super.addEdge(sec, forsyth, 196);
+		super.addEdge(churchill, forsyth, 112);
+		super.addEdge(churchill, snell, 70);
+		super.addEdge(churchill, hayden, 50);
+		super.addEdge(marino, speare, 163);
+		super.addEdge(speare, dodge, 170);
+		super.addEdge(dodge, mugar, 90);
+		super.addEdge(dodge, hastings, 115);
+		super.addEdge(speare, hastings, 173);
+		super.addEdge(mugar, eastvillage, 84);
+		super.addEdge(eastvillage, gainsborough, 34);
+		super.addEdge(mugar, hastings, 90);
+		super.addEdge(eastvillage, cullinane, 25);
+		super.addEdge(cullinane, hurtig, 117);
+		super.addEdge(hurtig, robinson, 60);
+		super.addEdge(robinsonquad, robinson, 34);
+		super.addEdge(mugar, robinson, 140);
+		super.addEdge(dodge, robinsonquad, 150);
+		super.addEdge(mugar, robinsonquad, 124);
+		super.addEdge(curry, robinsonquad, 80);
+		super.addEdge(robinsonquad, columbus, 146);
+		super.addEdge(snell, columbus, 210);
+		super.addEdge(dodge, ell, 45);
+		super.addEdge(ell, mugar, 42);
+		super.addEdge(columbus, hurtig, 154);
+		super.addEdge(cullinane, robinsonquad, 120);
+		super.addEdge(speare, cabot, 172);
+		super.addEdge(sec, columbus, 282);
 
 	}
-
+	
+	@Override
 	public ArrayList<String> getPath(String start, String end) {
 
-		HashMap<GraphNode, GraphEdge> shortest_distance = Graph.djikstra_path(this.graph, buildingMap.get(start),
+		HashMap<GraphNode, GraphEdge> shortest_distance = super.djikstra_path(this, buildingMap.get(start),
 				buildingMap.get(end));
 
 		ArrayList<String> path = new ArrayList<>();
@@ -118,9 +119,10 @@ public class NEUMap {
 
 		return path;
 	}
-
+	
+	@Override
 	public int getDistance(String start, String end) {
-		return Graph.djikstra_path(this.graph, buildingMap.get(start), buildingMap.get(end))
+		return super.djikstra_path(this, buildingMap.get(start), buildingMap.get(end))
 				.get(buildingMap.get(end)).distance;
 	}
 

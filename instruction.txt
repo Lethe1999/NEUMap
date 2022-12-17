@@ -1,0 +1,5 @@
+=======================================================================================Welcome to our Northeastern Map application. You can use this instruction as a guide.1. On the main page, you can click "Buildings map" to get started. "Home" button will lead you to the main page. "Tunnel map" will be finished in the future.
+
+2. To stop/replay the background music, click the button in the left top corner.
+
+3. In the NEU map page, first, click the building on the map (Like Snell Library) as the input of your start position. The second click will be regarded as the target position you want to go to. Click the "START" button, the route will be colored in pink.4. Before starting your next search, please click the "RESET" button in the left bottom corner to make sure the map is in the original state.5. You can change weather conditions (Sunny, Snowy, Rainy) and different vehicles usage (Walk, Bicycle) by selecting provided options.Enjoy!=======================================================================================

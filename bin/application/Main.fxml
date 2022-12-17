@@ -46,7 +46,7 @@
                         <Bloom threshold="0.15" />
                      </effect>
                   </Button>
-                  <Button fx:id="aboutUs" alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="52.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-background-radius: 8;" text="About us" textAlignment="CENTER" textFill="#ddd8d8">
+                  <Button fx:id="aboutUs1" alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="52.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-background-radius: 8;" text="About us" textAlignment="CENTER" textFill="#ddd8d8">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -118,7 +118,6 @@
                         <Bloom threshold="0.15" />
                      </effect>
                   </Button>
-                  <ImageView fx:id="sound" fitHeight="30.0" fitWidth="30.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#soundControl" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -192,7 +191,7 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <GridPane fx:id="tunnelMap" layoutY="21.0" prefHeight="400.0" prefWidth="555.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane fx:id="tunnelMap" layoutY="21.0" prefHeight="500.0" prefWidth="760.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" percentWidth="32.0" prefWidth="255.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="68.0" />
@@ -286,24 +285,56 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <Pane fx:id="mainPage" layoutX="64.0" layoutY="34.0" prefHeight="500.0" prefWidth="767.0" style="-fx-background-color: #E50000;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="aboutUsPage" layoutY="-4.0" prefHeight="500.0" prefWidth="760.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="353.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="560.0" fitWidth="640.0" layoutX="-6.0" layoutY="-118.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@people.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="42.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We are group of people who love design and  play!" wrappingWidth="578.000978802676">
+               <font>
+                  <Font name="Hannotate SC Regular" size="25.0" />
+               </font>
+            </Text>
+            <Text layoutX="41.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our product aim to show the shortest path between two NEU school buildings when you settle your location and destination. " wrappingWidth="699.2827773094177">
+               <font>
+                  <Font name="Hannotate SC Regular" size="23.0" />
+               </font>
+            </Text>
+            <Button fx:id="HOME3" alignment="CENTER" contentDisplay="CENTER" layoutX="583.0" layoutY="159.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" prefHeight="43.0" prefWidth="105.0" style="-fx-background-color: #000000; -fx-background-radius: 8; -fx-cursor: hand;" text="HOME" textAlignment="CENTER" textFill="#ddd8d8">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.15" />
+               </effect>
+            </Button>
+            <Text layoutX="543.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Map DOODs" wrappingWidth="262.849609375">
+               <font>
+                  <Font name="Hannotate SC Regular" size="37.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="mainPage" layoutX="64.0" layoutY="34.0" prefHeight="500.0" prefWidth="760.0" style="-fx-background-color: #E50000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="339.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@northeastern-huskies-logo.png" />
                </image>
             </ImageView>
-            <Text layoutX="355.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Map DOODS">
+            <Text layoutX="336.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Map DOODS">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="192.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Northeastern University Map Distance Calculator " textAlignment="CENTER" wrappingWidth="437.646484375">
+            <Text fill="WHITE" layoutX="180.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Northeastern University Map Distance Calculator " textAlignment="CENTER" wrappingWidth="437.646484375">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <ButtonBar layoutX="192.0" layoutY="332.0" prefHeight="46.0" prefWidth="355.0">
+            <ButtonBar layoutX="184.0" layoutY="332.0" prefHeight="46.0" prefWidth="355.0">
               <buttons>
                   <Button fx:id="tunnelBar" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="7.0" layoutX="36.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: #000000;" text="Tunnel map" textAlignment="RIGHT" textFill="#dacdcd" textOverrun="CENTER_ELLIPSIS">
                      <font>
@@ -315,7 +346,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="aboutUs" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="7.0" layoutX="30.0" layoutY="22.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="25.0" style="-fx-background-color: #000000;" text="About us" textAlignment="RIGHT" textFill="#dacdcd" textOverrun="CENTER_ELLIPSIS">
+                  <Button fx:id="aboutUs" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="7.0" layoutX="30.0" layoutY="22.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="23.0" prefWidth="25.0" style="-fx-background-color: #000000;" text="About us" textAlignment="RIGHT" textFill="#dacdcd" textOverrun="CENTER_ELLIPSIS">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -324,5 +355,6 @@
             </ButtonBar>
          </children>
       </Pane>
+      <ImageView fx:id="sound" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#soundControl" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -12,7 +12,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -24,6 +23,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polyline;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import map_algorithm.Graph;
 import map_algorithm.NEUMap;
 
 public class MapController {
@@ -89,7 +89,7 @@ public class MapController {
 	}
 
 	/* Create a NEU Map */
-	private NEUMap neuMap = new NEUMap();
+	private Graph neuMap = new NEUMap();
 
 	/**
 	 * 
@@ -147,16 +147,14 @@ public class MapController {
 		} else {
 			time = (double) distance / 60 / 5.0;
 		}
-		System.out.println(time);
+
 		/* Weather */
 		if (weather_mode == null || weather_mode.equals("Sunny")) {
 			time *= 1;
 		} else if (weather_mode.equals("Rainy")) {
 			time *= 1.5;
-			System.out.println(time);
 		} else {
 			time *= 3;
-			System.out.println(time);
 		}
 
 		return time;
@@ -309,20 +307,13 @@ public class MapController {
 	@FXML
 	Button aboutUs2, tunnelBar2, buildingBar2;
 	@FXML
-	Button HOME, HOME1, HOME2;
+	Button HOME, HOME1, HOME2, HOME3;
 	@FXML
 	GridPane buildingMap, tunnelMap;
 	@FXML
-	Pane mainPage;
+	Pane mainPage, aboutUsPage;
 	@FXML
 	HBox hbox;
-
-	@FXML
-	private void handleMouseEvent(MouseEvent event) {
-		if (event.getSource() == btnClose) {
-			System.exit(0);
-		}
-	}
 
 	@FXML
 	private void handleButtonAction(ActionEvent event) {
@@ -354,8 +345,21 @@ public class MapController {
 		if (event.getSource().equals(HOME2)) {
 			mainPage.toFront();
 		}
+		if (event.getSource().equals(HOME3)) {
+			mainPage.toFront();
+		}
+		if (event.getSource().equals(aboutUs)) {
+			aboutUsPage.toFront();
+		}
+		if (event.getSource().equals(aboutUs1)) {
+			aboutUsPage.toFront();
+		}
+		if (event.getSource().equals(aboutUs2)) {
+			aboutUsPage.toFront();
+		}
+
 		if (event.getSource() != null) {
-			hbox.toFront();
+			sound.toFront();
 		}
 
 	}

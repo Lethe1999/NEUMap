@@ -16,16 +16,16 @@ public class GraphNode {
 	
 	
 
-	public void addChild(GraphNode desination, int distance) {
+	public void addEdge(GraphNode desination, int distance) {
 		
 		edges.add(new GraphEdge(desination, distance));		
 	}
 	
-	public void removeChild(GraphNode child) {
+	public void removeEdge(GraphNode destination) {
 		
 		for(GraphEdge edge:edges)
 		{
-			if(edge.node==child)
+			if(edge.node==destination)
 			{
 				edges.remove(edge);
 				break;
